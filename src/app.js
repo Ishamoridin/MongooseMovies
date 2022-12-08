@@ -23,7 +23,7 @@ async function app(yargsinput) {
             console.log("Reading")
             const findFilter = {};
             // let resultsTable = []
-            if (yargsinput.rating){findFilter.rating = yargsinput.rating}
+            if (yargsinput.rating || yargsinput.rating === 0){findFilter.rating = yargsinput.rating}
             if (yargsinput.director){findFilter.director = yargsinput.director}
             if (yargsinput.actor){findFilter.actor = yargsinput.actor}
             if (yargsinput.title){findFilter.title = yargsinput.title}
@@ -44,7 +44,7 @@ async function app(yargsinput) {
             else {
                 const findFilter = {}; findFilter.title = yargsinput.title;
                 const updatedMovie = {}; updatedMovie.title = yargsinput.title;
-                if (yargsinput.rating){updatedMovie.rating = yargsinput.rating};
+                if (yargsinput.rating || yargsinput.rating === 0){updatedMovie.rating = yargsinput.rating};
                 if (yargsinput.director){updatedMovie.director = yargsinput.director};
                 if (yargsinput.actor){updatedMovie.actor = yargsinput.actor};
                 await updateMovie(findFilter, updatedMovie);
@@ -55,7 +55,7 @@ async function app(yargsinput) {
         else if (yargsinput.delete) {
             console.log("Deleting")
             const findFilter = {}; findFilter.title = yargsinput.title;
-            if (yargsinput.rating){findFilter.rating = yargsinput.rating};
+            if (yargsinput.rating || yargsinput.rating === 0){findFilter.rating = yargsinput.rating};
             if (yargsinput.director){findFilter.director = yargsinput.director};
             if (yargsinput.actor){findFilter.actor = yargsinput.actor};
             const results = await deleteMovie(findFilter);
@@ -83,7 +83,7 @@ async function app(yargsinput) {
         else if (yargsinput.read) {
             console.log("Reading")
             const findFilter = {};
-            if (yargsinput.rating){findFilter.rating = yargsinput.rating}
+            if (yargsinput.rating || yargsinput.rating === 0){findFilter.rating = yargsinput.rating}
             if (yargsinput.producer){findFilter.producer = yargsinput.producer}
             if (yargsinput.actor){findFilter.actor = yargsinput.actor}
             if (yargsinput.title){findFilter.title = yargsinput.title}
@@ -97,7 +97,7 @@ async function app(yargsinput) {
             else {
                 const findFilter = {}; findFilter.title = yargsinput.title;
                 const updatedShow = {}; updatedShow.title = yargsinput.title;
-                if (yargsinput.rating){updatedShow.rating = yargsinput.rating};
+                if (yargsinput.rating || yargsinput.rating === 0){updatedShow.rating = yargsinput.rating};
                 if (yargsinput.producer){updatedShow.producer = yargsinput.producer};
                 if (yargsinput.actor){updatedShow.actor = yargsinput.actor};
                 await updateShow(findFilter, updatedShow);
@@ -108,7 +108,7 @@ async function app(yargsinput) {
         else if (yargsinput.delete) {
             console.log("Deleting")
             const findFilter = {}; findFilter.title = yargsinput.title;
-            if (yargsinput.rating){findFilter.rating = yargsinput.rating};
+            if (yargsinput.rating || yargsinput.rating === 0){findFilter.rating = yargsinput.rating};
             if (yargsinput.producer){findFilter.producer = yargsinput.producer};
             if (yargsinput.actor){findFilter.actor = yargsinput.actor};
             const results = await deleteShow(findFilter);
